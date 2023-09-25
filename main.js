@@ -11,12 +11,12 @@ const storage = multer.memoryStorage()
 const upload = multer({storage: storage})
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.get('/inici', getInici)
 async function getInici(req, res) {
     let query = url.parse(req.url, true).query;
-    let noms = []
+    let noms = [];
     try {
         // Llegir el fitxer JSON
         let dadesArxiu = await fs.readFile("./private/productes.json", { encoding: 'utf8' })
