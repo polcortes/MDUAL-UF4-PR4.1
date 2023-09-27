@@ -31,8 +31,13 @@ async function getInici(req, res) {
         res.send('Error al llegir el fitxer JSON')
     }
 }
+
+app.get('/edit', getEdit)
+async function getEdit(req, res) {
+    
+}
 // Activar el servidor
 const httpServer = app.listen(port, appListen)
 function appListen () {
-console.log(`Example app listening on: http://localhost:${port}`)
+    console.log(`Example app listening on: http://localhost:${port}`)
 }
