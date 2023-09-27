@@ -23,7 +23,7 @@ async function getInici(req, res) {
         let dades = JSON.parse(dadesArxiu)
         // 'noms' conté un array amb els noms de totes les naus ‘
         noms = dades.map(game => { return game.name })
-        res.render('sites/search', { llista: noms })
+        res.render('sites/inici', { llista: noms })
     } catch (error) {
         console.error(error)
         res.send('Error al llegir el fitxer JSON')
