@@ -13,6 +13,8 @@ const upload = multer({storage: storage})
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+app.get('/afegir-producte')
+
 app.get('/inici', getInici)
 async function getInici(req, res) {
     let query = url.parse(req.url, true).query;
