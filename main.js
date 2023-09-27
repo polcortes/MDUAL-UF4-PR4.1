@@ -13,7 +13,34 @@ const upload = multer({storage: storage})
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/afegir-producte')
+app.get('/add', getAdd);
+async function getAdd(req, res) {
+    let query = url.parse(req.url, true).query;
+    
+    if (query.name && query.price && query.description && query.image) {
+        let productes = JSON.parse(fs.readFile('private/productes.json'));
+        productes.sort((a, b) => {
+            return a.id - b.id;
+        });
+
+        let newID = productes[productes.length - 2].id + 1;
+        query.push();
+    }
+    //res.render('sites/add', {});
+
+
+
+    /*let postData = await getPostObject(req);
+    try {
+        if (postData.files && postData.files.length > 0) {
+            console.log(postData.files);
+            alert('hola!!');
+        }
+    } catch (error) {
+        console.error(error);
+        res.send('Error al afegir les dades');
+    }*/
+}
 
 app.get('/inici', getInici)
 async function getInici(req, res) {
