@@ -61,7 +61,25 @@ async function getAdd(req, res) {
 
 app.get('/delete', getDelete);
 async function getDelete(req, res) {
-    res.render('sites/delete', {});
+    let query = url.parse(req.url, true).query;
+    if (query.id) {
+        let dadesArxiu = await fs.readFile("private/productes.json", { encoding: "utf8" });
+        let dades = JSON.parse(dadesArxiu);
+        
+        let producte = {}
+        let inFile = false;
+        for (let dada of dades) {
+            if (dada.id == query.id) {
+                inFile = true;
+                producte = dada;
+            }
+        }
+
+        if (inFile) res.render('sites/delete', { item: producte });
+        else res.send(`No hi ha un item amb l'id ${query.id}`);
+    } else {
+        res.send(`No hi ha un item amb l'id ${query.id}`);
+    }
 }
 
 app.post('/actionAdd', upload.array('foto', 1), getActionAdd);
@@ -96,7 +114,8 @@ async function getActionAdd(req, res) {
         dades.push(postData); // Afegim el nou objecte (que ja té el nou nom d’imatge)
         let textDades = JSON.stringify(dades, null, 4); // Ho transformem a cadena de text (per guardar-ho en un arxiu)
         await fs.writeFile(arxiu, textDades, { encoding: "utf8" }); // Guardem la informació a l’arxiu
-        res.render('sites/addAction', { item: postData });
+        res.redirect("/");
+        // res.render('sites/addAction', { item: postData });
     } catch (error) {
         console.error(error);
         res.send("Error al afegir les dades");
@@ -121,7 +140,7 @@ async function getEdit(req, res) {
 }
 
 
-app.get('/', getInici)
+app.get('/', getInici);
 async function getInici(req, res) {
     let query = url.parse(req.url, true).query;
     let noms = [];
@@ -134,7 +153,7 @@ async function getInici(req, res) {
         res.render('sites/inici', { llista: noms })
     } catch (error) {
         console.error(error)
-        res.send('Error al llegir el fitxer JSON')
+        res.send('Error al llegir el fitxer JSON');
     }
 }
 

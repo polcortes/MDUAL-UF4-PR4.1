@@ -68,5 +68,26 @@
         "price": 2.5,
         "description": "Sé, vive, respira, piensa y actúa como Torrente. Métete de lleno en la piel de \"El Policía más grande que ha dado España\". Santiago Segura será de nuevo la estrella de la película que se estrenará el próximo 30 de septiembre, y prestará su imagen y voz como Torrente en el videojuego, involucrándose de lleno en el proyecto.",
         "image": "imgs/Torrente.jpg"
+    },
+    {
+        "name": "dfsf",
+        "price": 3424,
+        "description": "vcxvcxzv",
+        "image": "86d284d3-d842-4c46-b3e8-ac9834b6562b.png",
+        "id": 10
+    },
+    {
+        "name": "fsdxf",
+        "price": 234,
+        "description": "fdsfsdf",
+        "image": "54339eb9-f512-4950-bdb1-2ea4ef0a00df.png",
+        "id": 11
+    },
+    {
+        "name": "asf",
+        "price": 32,
+        "description": "fsfsdfd",
+        "image": "1724b073-4a29-403f-ba7a-2e7eec2522ea.png",
+        "id": 12
     }
 ]
