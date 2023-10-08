@@ -249,8 +249,32 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     height: auto;
     width: 350px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #cacaca;
+    padding: 30px;
 }
 
 #delete-main > label {
     font-weight: 600;
+    font-size: medium;
+}
+
+#delete-main > #boton-borrar {
+    padding: 10px;
+    background-color: #ff1515;
+    border-radius: 10px;
+    margin: 10px;
+    width: fit-content;
+    font-weight: 600;
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    transition: all .4s;
+}
+
+#delete-main > #boton-borrar:hover {
+    background-color: #bb0000;
+}
+
+#delete-main > img {
+    margin-top: 15px;
 }

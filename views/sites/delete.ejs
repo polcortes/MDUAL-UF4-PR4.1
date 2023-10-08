@@ -5,17 +5,18 @@
     <title>Esborrar</title>
 </head>
 <body id="delete-body">
+    <%- include('../partials/nav') %>
     <h1>Esborrar item</h1>
     <main id="delete-main">
         <label>Nombre del juego:</label>
-        <input id="name" type="text" name="name" placeholder="Nombre del juego" value="<% __append(name) %>" autocomplete="off" disabled>
+        <p><% __append(name) %></p>
         <label>Precio:</label>
         <p><% __append(price) %>€</p>
         <label>Descripción:</label>
         <p><% __append(description) %></p>
         <label>Imagen:</label>
         <img src="imgs/<% __append(image) %>">
-        <a href="/actionDelete?id=<% __append(id) %>">BORRAR</a>
+        <a id="boton-borrar" href="/actionDelete?id=<% __append(id) %>">BORRAR</a>
     </main>
 </body>
 </html>
