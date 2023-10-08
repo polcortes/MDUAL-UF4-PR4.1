@@ -4,70 +4,70 @@
         "name": "Goat Simulator 3",
         "price": 30,
         "description": "Goat Simulator 3 is a brand new third-person action game in which you get to become the literal GOAT. Just like the first Goat Simulator, you'll need to climb, headbutt and lick your way across an open world map - this time with all new areas, challenges, and events to discover.",
-        "image": "imgs/GoatSimulator3.jpg"
+        "image": "GoatSimulator3.jpg"
     },
     {
         "name": "Barbie 12 Princesas Bailarinas 123123",
         "price": 15,
         "description": "El juego basado en la famosa película con el mismo nombre ha llegado a la PS2!",
         "id": 1,
-        "image": "imgs/9ef2ba4e-a3fa-438a-bcec-4ec6aeefa4e0.webp"
+        "image": "36266f37-bf14-491b-9cc7-71f830856206.webp"
     },
     {
         "id": 2,
         "name": "Canis Canem Edit",
         "price": 20,
         "description": "Con Canis Canem Edit, Rockstar lleva su tradición de crear juegos originales y vanguardistas con humor irónico a un nuevo escenario: el patio del colegio. \nEncarnas a un travieso alumno que se enfrentará a abusones, soportará la presión de los profesores, gastará bromas, conquistará o perderá a la chica y aprenderá a evitar los obstáculos del peor colegio que hay: la Academia Bullworth.",
-        "image": "imgs/GoatSimulator3.jpg"
+        "image": "GoatSimulator3.jpg"
     },
     {
         "id": 3,
         "name": "Celeste",
         "price": 20,
         "description": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight, hand-crafted platformer from the creators of multiplayer classic TowerFall.",
-        "image": "imgs/Celeste.jpg"
+        "image": "Celeste.jpg"
     },
     {
         "id": 4,
         "name": "De Blob",
         "price": 30,
         "description": "Don't know about art but you know what you like? Whether you are a master of the brush or a finger painting fool, just say no way to gray and join with de Blob and his pals as they launch a color revolution. A mischievous and unlikely hero, only de Blob can flip, bounce and smash his way past the all-powerful I.N.K.T. Corporation to ignite a revolution and save Chroma City from a future without color.",
-        "image": "imgs/DeBlob.jpg"
+        "image": "DeBlob.jpg"
     },
     {
         "id": 5,
         "name": "Sims 3",
         "price": 30,
         "description": "Simula tu vida ambientada principalmente entre Sunset Valley, donde hay rivalidad entre las famílias Alto y Del Solar",
-        "image": "imgs/Sims3.jpg"
+        "image": "Sims3.jpg"
     },
     {
         "id": 6,
         "name": "Slay The Spire",
         "price": 22.99,
         "description": "We fused card games and roguelikes together to make the best single player deckbuilder we could. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and Slay the Spire!",
-        "image": "imgs/SlayTheSpire.jpg"
+        "image": "SlayTheSpire.jpg"
     },
     {
         "id": 7,
         "name": "Stardew Valley",
         "price": 13.99,
         "description": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
-        "image": "imgs/StardewValley.jpg"
+        "image": "StardewValley.jpg"
     },
     {
         "id": 8,
         "name": "Super Mario Wonder",
         "price": 59.99,
         "description": "Descubrid un mundo de maravillas con Mario y sus amigos en Super Mario Bros. Wonder para Nintendo Switch.",
-        "image": "imgs/SuperMarioWonder.jpg"
+        "image": "SuperMarioWonder.jpg"
     },
     {
         "id": 9,
         "name": "Torrente 3",
         "price": 2.5,
         "description": "Sé, vive, respira, piensa y actúa como Torrente. Métete de lleno en la piel de \"El Policía más grande que ha dado España\". Santiago Segura será de nuevo la estrella de la película que se estrenará el próximo 30 de septiembre, y prestará su imagen y voz como Torrente en el videojuego, involucrándose de lleno en el proyecto.",
-        "image": "imgs/Torrente.jpg"
+        "image": "Torrente.jpg"
     },
     {
         "name": 12312123,

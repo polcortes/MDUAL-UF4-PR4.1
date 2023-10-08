@@ -154,6 +154,7 @@ input::-webkit-inner-spin-button {
 }
 
 
-img {
-    max-width: 33%;
+.edit-img {
+    aspect-ratio: 1/1;
+    height: 300px;
 }

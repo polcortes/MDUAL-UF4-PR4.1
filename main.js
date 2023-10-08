@@ -138,7 +138,7 @@ async function getActionEdit(req, res) {
             await fs.writeFile("./public/imgs/" + filePath, fileObj.content);
 
             // Guardem el nom de l'arxiu a la propietat 'imatge' de l'objecte
-            postData.imatge = filePath;
+            postData.image = filePath;
             dades.sort((a, b) => {
                 if (a.id < b.id) return -1;
             });
@@ -148,6 +148,7 @@ async function getActionEdit(req, res) {
         console.log(postData)
         for (let i = 0; i < dades.length; i++) {
             if (dades[i].id == postData.id) {
+                await fs.unlink("./public/imgs/" + dades[i].image)
                 dades[i] = postData; // Afegim el nou objecte (que ja té el nou nom d’imatge)
             }
         }
