@@ -1,7 +1,7 @@
 <%
 var i = 1;
 for (cnt in llista) {
-    __append("<br/> <a href='/item?nom=" + llista[cnt] + "'>" + i + " - " + llista[cnt] + "</a>")
+__append("<br/> <a href='/edit?id=" + cnt + "'>" + i + " - " + llista[cnt] + "</a>")
 i++
 }
 %>
