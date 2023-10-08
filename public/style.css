@@ -153,9 +153,82 @@ input::-webkit-inner-spin-button {
     height: 300px;
 }
 
+/*
+** add.ejs 
+*/
+#menu-main {
+    display: grid;
+    place-content: center;
+    margin-top: 12vh;
+}
+
+#menu-main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#menu-content {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px 0px #cacaca;
+}
+
+#menu-product label {
+    font-weight: 600;
+    font-size: medium;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#menu-product input {
+    margin-bottom: 20px;
+}
+
+#menu-product input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#menu-product input[type="text"], input[type="number"] {
+    font-size: 14px;
+    padding: 3px;
+    border: 2px solid #cacaca;
+    border-radius: 5px;
+    transition: 0.3s;
+    outline: none;
+}
+
+#menu-product input[type="text"]:hover, input[type="number"]:hover {
+    border: 2px solid #5e5e5e;
+}
+
+#menu-product input[type="text"]:focus, input[type="number"]:focus {
+    border: 2px solid #1573ff;
+}
+
+#menu-product button[type="submit"] {
+    color: white;
+    font-size: medium;
+    cursor: pointer;
+    padding: 7px;
+    background-color: #1573ff;
+    border: none;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+#menu-product button[type="submit"]:hover {
+    background-color: #0057da;
+}
+
 
 .edit-img {
     aspect-ratio: 1/1;
+    width: 300px;
     height: 300px;
 }
 
