@@ -74,10 +74,35 @@ async function getDelete(req, res) {
             }
         }
 
-        if (inFile) res.render('sites/delete', { item: producte });
+        if (inFile) res.render('sites/delete', producte);
         else res.send(`No hi ha un item amb l'id ${query.id}`);
     } else {
         res.send(`No hi ha un item amb l'id ${query.id}`);
+    }
+}
+
+app.get('/actionDelete', getActionDelete);
+async function getActionDelete(req, res) {
+    let query = url.parse(req.url, true).query;
+
+    if (query.id) {
+        let dadesArxiu = await fs.readFile("private/productes.json");
+        let dades = JSON.parse(dadesArxiu);
+
+        // Esborrem la imatge de l'item que tingui la mateixa id que la query.
+        for (let dada of dades) {
+            if (dada.id == query.id) {
+                await fs.unlink("./public/imgs/" + dada.image);
+            }
+        }
+
+        // Fem un nou inventari sense l'item que té l'id que volem eliminar.
+        let nuevoInventario = dades.filter((dada) => dada.id != query.id);
+        let dadesString = JSON.stringify(nuevoInventario);
+
+        // Sobreescrivim el fitxer sense l'item que volem esborrar y anem a "inici".
+        await fs.writeFile("private/productes.json", dadesString);
+        res.redirect("/");
     }
 }
 
@@ -173,7 +198,7 @@ async function getActionEdit(req, res) {
         }
         let textDades = JSON.stringify(dades, null, 4); // Ho transformem a cadena de text (per guardar-ho en un arxiu)
         await fs.writeFile(arxiu, textDades, { encoding: "utf8" }); // Guardem la informació a l’arxiu
-        res.render('sites/editAction', { item: postData });
+        res.redirect("/");
     } catch (error) {
         console.error(error);
         res.send("Error al afegir les dades");

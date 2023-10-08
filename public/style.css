@@ -158,3 +158,26 @@ input::-webkit-inner-spin-button {
     aspect-ratio: 1/1;
     height: 300px;
 }
+
+/*
+** delete.ejs
+*/
+#delete-body {
+    display: grid;
+    place-content: center;
+}
+
+#delete-body > h1 {
+    text-align: center;
+}
+
+#delete-main {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 350px;
+}
+
+#delete-main > label {
+    font-weight: 600;
+}

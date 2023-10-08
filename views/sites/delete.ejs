@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head') %>
     <title>Esborrar</title>
 </head>
-<body>
-    <main>
-        
+<body id="delete-body">
+    <h1>Esborrar item</h1>
+    <main id="delete-main">
+        <label>Nombre del juego:</label>
+        <input id="name" type="text" name="name" placeholder="Nombre del juego" value="<% __append(name) %>" autocomplete="off" disabled>
+        <label>Precio:</label>
+        <p><% __append(price) %>€</p>
+        <label>Descripción:</label>
+        <p><% __append(description) %></p>
+        <label>Imagen:</label>
+        <img src="imgs/<% __append(image) %>">
+        <a href="/actionDelete?id=<% __append(id) %>">BORRAR</a>
     </main>
 </body>
 </html>
