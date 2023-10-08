@@ -98,20 +98,21 @@ async function getActionAdd(req, res) {
     }
 }
 
-app.post('/item', getItem);
-async function getItem(req, res) {
+app.get('/edit', getEdit);
+async function getEdit(req, res) {
     let query = url.parse(req.url, true).query;
-    
-    if (query.name && query.price && query.description && query.image) {
-        let productes = await JSON.parse(fs.readFile('private/productes.json'));
-        productes.sort((a, b) => {
-            if (a.id < b.id) return -1;
-        });
 
-        let newID = productes[productes.length-1].id + 1;
-        let newItem = [newID, query.name, query.price, query.description, query.image];
+    let arxiu = "./private/productes.json";
+    let dadesArxiu = await fs.readFile(arxiu, { encoding: "utf8" });
+    let dades = JSON.parse(dadesArxiu);
+
+    let producte = {};
+    for (let i = 0; i < dades.length; i++) {
+        if (dades[i].id == query.id) {
+            producte = dades[i]
+        }
     }
-    res.render('sites/item', {});
+    res.render('sites/edit', producte);
 }
 
 
@@ -130,11 +131,6 @@ async function getInici(req, res) {
         console.error(error)
         res.send('Error al llegir el fitxer JSON')
     }
-}
-
-app.get('/edit', getEdit)
-async function getEdit(req, res) {
-    //! edit.
 }
 
 
