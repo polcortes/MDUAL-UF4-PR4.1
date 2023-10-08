@@ -13,7 +13,6 @@ const upload = multer({
     limits: { fileSize: 1024 * 1024 } // Tamaño máximo en bytes (1 MB en este ejemplo)
 });
 
-
 //TODO: '/inici' tendría que ser simplemente '/'.
 //TODO: getPostObject() no funciona (o creo que /actionAdd no recibe lo que debería en req :P), peta cuando se intenta sacar el length de un archivo.
 
@@ -131,12 +130,54 @@ async function getEdit(req, res) {
     let dades = JSON.parse(dadesArxiu);
 
     let producte = {};
+    id = query.id;
     for (let i = 0; i < dades.length; i++) {
         if (dades[i].id == query.id) {
             producte = dades[i]
         }
     }
     res.render('sites/edit', producte);
+}
+
+app.post('/actionEdit', upload.array('foto', 1), getActionEdit);
+async function getActionEdit(req, res) {
+    let arxiu = "./private/productes.json";
+    let postData = await getPostObject(req);
+    try {
+        // Llegir el fitxer JSON
+        let dadesArxiu = await fs.readFile(arxiu, { encoding: "utf8" });
+        let dades = JSON.parse(dadesArxiu);
+
+        // Guardem la imatge a la carpeta 'public' amb un nom únic
+        if (postData.files && postData.files.length > 0) {
+            let fileObj = postData.files[0];
+            const uniqueID = uuidv4();
+            const fileExtension = fileObj.name.split(".").pop();
+            let filePath = `${uniqueID}.${fileExtension}`;
+            await fs.writeFile("./public/imgs/" + filePath, fileObj.content);
+
+            // Guardem el nom de l'arxiu a la propietat 'imatge' de l'objecte
+            postData.image = filePath;
+            dades.sort((a, b) => {
+                if (a.id < b.id) return -1;
+            });
+            // Eliminem el camp 'files' perquè no es guardi al JSON
+            delete postData.files;
+        }
+        console.log(postData)
+        for (let i = 0; i < dades.length; i++) {
+            if (dades[i].id == postData.id) {
+                await fs.unlink("./public/imgs/" + dades[i].image)
+                dades[i] = postData; // Afegim el nou objecte (que ja té el nou nom d’imatge)
+            }
+        }
+        let textDades = JSON.stringify(dades, null, 4); // Ho transformem a cadena de text (per guardar-ho en un arxiu)
+        await fs.writeFile(arxiu, textDades, { encoding: "utf8" }); // Guardem la informació a l’arxiu
+        res.render('sites/editAction', { item: postData });
+    } catch (error) {
+        console.error(error);
+        res.send("Error al afegir les dades");
+    }
 }
 
 

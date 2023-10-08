@@ -1,4 +1,5 @@
-<h1>Modificant el producte amb id <% __append(id) %></h1>
+<main id="add-main">
+    <h1>Modificant el producte amb id <% __append(id) %></h1>
 
 
 
@@ -16,7 +17,7 @@
     </label>-->
     <input id="foto" type="file" name="foto" alt="Añade una imagen al producto" accept="image/jpg, image/png, image/webp" required><br>
     <input type="submit" value="Penjar joc!"></button>
-
+ 
     <% __append(`<a href="/delete?id=${id}">`) %>
         <svg style="width: 15px; height: 15px;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
