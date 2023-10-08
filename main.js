@@ -8,7 +8,10 @@ const multer = require('multer')
 const { v4: uuidv4 } = require('uuid')
 
 const storage = multer.memoryStorage()
-const upload = multer({storage: storage})
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 1024 * 1024 } // Tamaño máximo en bytes (1 MB en este ejemplo)
+});
 
 
 //TODO: '/inici' tendría que ser simplemente '/'.
@@ -48,7 +51,7 @@ async function getPostObject(req) {
             }
         }
         resolve(objPost);
-    })
+    });
 }
 
 app.get('/add', getAdd);
@@ -56,10 +59,10 @@ async function getAdd(req, res) {
     res.render('sites/add', {});
 }
 
-app.post('/actionAdd', upload.array("foto"), getActionAdd);
+app.post('/actionAdd', upload.array('foto', 1), getActionAdd);
 async function getActionAdd(req, res) {
     let arxiu = "./private/productes.json";
-    //let postData = await getPostObject(req);
+    let postData = await getPostObject(req);
     try {
         // Llegir el fitxer JSON
         let dadesArxiu = await fs.readFile(arxiu, { encoding: "utf8" });
@@ -72,8 +75,16 @@ async function getActionAdd(req, res) {
             const fileExtension = fileObj.name.split(".").pop();
             let filePath = `/${uniqueID}.${fileExtension}`;
             await fs.writeFile("./public/imgs" + filePath, fileObj.content);
+            
             // Guardem el nom de l'arxiu a la propietat 'imatge' de l'objecte
             postData.imatge = filePath;
+            dades.sort((a, b) => {
+                if (a.id < b.id) return -1;
+            });
+            let newID = dades[dades.length-1].id + 1;
+            
+            // Nou id de producte:
+            postData.id = newID;
             // Eliminem el camp 'files' perquè no es guardi al JSON
             delete postData.files;
         }
@@ -94,7 +105,7 @@ async function getItem(req, res) {
     if (query.name && query.price && query.description && query.image) {
         let productes = await JSON.parse(fs.readFile('private/productes.json'));
         productes.sort((a, b) => {
-            return a.id - b.id;
+            if (a.id < b.id) return -1;
         });
 
         let newID = productes[productes.length-1].id + 1;
@@ -104,7 +115,7 @@ async function getItem(req, res) {
 }
 
 
-app.get('/inici', getInici)
+app.get('/', getInici)
 async function getInici(req, res) {
     let query = url.parse(req.url, true).query;
     let noms = [];

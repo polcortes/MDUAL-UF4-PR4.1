@@ -5,24 +5,24 @@
     <script src="handle-edit.js"></script>   <!--! Esto sirve para saber sobre qué item quieres editar!! -->
 </head>
 <body>
-    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
 
     <main id="add-main">
         <h1>Add a product:</h1>
 
-        <form id="add-product" method="POST" action="./actionAdd">
-            <h3>Nombre del juego:</h3>
-            <input id="name" type="text" name="name" placeholder="Nombre del juego" required>
-            <h3>Precio:</h3>
+        <form id="add-product" method="POST" action="./actionAdd" enctype="multipart/form-data">
+            <label>Nombre del juego: <span class="form-required">*</span></label>
+            <input id="name" type="text" name="name" placeholder="Nombre del juego" required autocomplete="off">
+            <label>Precio: <span class="form-required">*</span></label>
             <input id="price" type="number" name="price" placeholder="9.99" min="0.00" max="10000.00" step="0.01" required>
-            <h3>Descripción:</h3>
-            <input id="description" type="text" name="description" placeholder="Breve descripción del juego..." required>
-            <h3>Imagen (jpg, png o webp):</h3>
+            <label>Descripción: <span class="form-required">*</span></label>
+            <input id="description" type="text" name="description" placeholder="Breve descripción del juego..." required autocomplete="off">
+            <label>Imagen (jpg, png o webp): <span class="form-required">*</span></label>
             <!--<label for="foto" class="custom-file-upload">
                 Custom Upload
             </label>-->
             <input id="foto" type="file" name="foto" alt="Añade una imagen al producto" accept="image/jpg, image/png, image/webp" required><br>
-            <button type="submit">Penjar joc!</button>
+            <input type="submit">Penjar joc!</button>
         </form>
         <h1 id="ola" onclick="goEdit(this.id)">hola</h1>    <!--! Enviamos al script el id del elemento seleccionado y el script hace lo suyo. -->
     </main>
