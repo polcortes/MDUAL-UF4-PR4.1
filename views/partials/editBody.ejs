@@ -1,7 +1,24 @@
 <main id="add-main">
     <h1>Modificant el producte amb id <% __append(id) %></h1>
 
-    <button href="/delete?id=<% __append(id) %></button>">
+
+
+<form id="add-product" method="POST" action="./actionAdd" enctype="multipart/form-data">
+    <label>Nombre del juego: <span class="form-required">*</span></label>
+    <input id="name" type="text" name="name" placeholder="Nombre del juego" value="<% __append(name) %>" required autocomplete="off">
+    <label>Precio: <span class="form-required">*</span></label>
+    <input id="price" type="number" name="price" placeholder="9.99" min="0.00" max="10000.00" step="0.01" value="<% __append(price) %>" required>
+    <label>Descripción: <span class="form-required">*</span></label>
+    <input id="description" type="text" name="description" placeholder="Breve descripción del juego..." value="<% __append(description) %>" required autocomplete="off">
+    <img src="<% __append(image) %>">
+    <label>Imagen (jpg, png o webp): <span class="form-required">*</span></label>
+    <!--<label for="foto" class="custom-file-upload">
+        Custom Upload
+    </label>-->
+    <input id="foto" type="file" name="foto" alt="Añade una imagen al producto" accept="image/jpg, image/png, image/webp" required><br>
+    <input type="submit" value="Penjar joc!"></button>
+ 
+    <% __append(`<a href="/delete?id=${id}">`) %>
         <svg style="width: 15px; height: 15px;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M4 7l16 0"></path>
@@ -11,23 +28,5 @@
             <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
         </svg> 
         Esborrar item
-    </button>
-
-    <form id="add-product" method="POST" action="./actionAdd" enctype="multipart/form-data">
-        <label>Nom del joc: <span class="form-required">*</span></label>
-        <input id="name" type="text" name="name" placeholder="Nombre del juego" required autocomplete="off" value="<% __append(name) %>">
-        <label>Preu: <span class="form-required">*</span></label>
-        <input id="price" type="number" name="price" placeholder="9.99" min="0.00" max="10000.00" step="0.01" required value="<% __append(price) %>">
-        <label>Descripció: <span class="form-required">*</span></label>
-        <input id="description" type="text" name="description" placeholder="Breve descripción del juego..." required autocomplete="off" value="<% __append(description) %>">
-        <img src="imgs/<% __append(image) %>" class="edit-img">
-        <label>Nova imatge (jpg, png o webp):</label>
-        <!--<label for="foto" class="custom-file-upload">
-            Custom Upload
-        </label>-->
-        <input id="foto" type="file" name="foto" alt="Añade una imagen al producto" accept="image/jpg, image/png, image/webp"><br>
-        <input type="submit">Penjar joc!</button>
-
-        <input type="hidden" id="id" name="id" value="<% __append(id) %>">
-    </form>
-</main>
+    </a>
+</form>
