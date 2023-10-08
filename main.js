@@ -59,6 +59,11 @@ async function getAdd(req, res) {
     res.render('sites/add', {});
 }
 
+app.get('/delete', getDelete);
+async function getDelete(req, res) {
+
+}
+
 app.post('/actionAdd', upload.array('foto', 1), getActionAdd);
 async function getActionAdd(req, res) {
     let arxiu = "./private/productes.json";
@@ -73,9 +78,9 @@ async function getActionAdd(req, res) {
             let fileObj = postData.files[0];
             const uniqueID = uuidv4();
             const fileExtension = fileObj.name.split(".").pop();
-            let filePath = `/${uniqueID}.${fileExtension}`;
+            let filePath = `${uniqueID}.${fileExtension}`;
             await fs.writeFile("./public/imgs" + filePath, fileObj.content);
-            
+
             // Guardem el nom de l'arxiu a la propietat 'imatge' de l'objecte
             postData.imatge = filePath;
             dades.sort((a, b) => {
@@ -91,14 +96,14 @@ async function getActionAdd(req, res) {
         dades.push(postData); // Afegim el nou objecte (que ja té el nou nom d’imatge)
         let textDades = JSON.stringify(dades, null, 4); // Ho transformem a cadena de text (per guardar-ho en un arxiu)
         await fs.writeFile(arxiu, textDades, { encoding: "utf8" }); // Guardem la informació a l’arxiu
-        res.send(`S'han afegit les dades ${textDades}`);
+        res.render('sites/addAction', { item: postData });
     } catch (error) {
         console.error(error);
         res.send("Error al afegir les dades");
     }
 }
 
-app.post('/item', getItem);
+app.get('/item', getItem);
 async function getItem(req, res) {
     let query = url.parse(req.url, true).query;
     
@@ -111,7 +116,7 @@ async function getItem(req, res) {
         let newID = productes[productes.length-1].id + 1;
         let newItem = [newID, query.name, query.price, query.description, query.image];
     }
-    res.render('sites/item', {});
+    res.render('sites/item', { llista: productes });
 }
 
 

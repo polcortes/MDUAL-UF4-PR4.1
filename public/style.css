@@ -5,7 +5,9 @@ body  {
 }
 
 
-/* nav.ejs */
+/*
+** nav.ejs
+*/
 #nav-center {
     display: flex;
     align-items: center;
@@ -38,7 +40,9 @@ nav > a:hover {
 }
 
 
-/* add.ejs */
+/*
+** add.ejs 
+*/
 #add-main {
     display: grid;
     place-content: center;
@@ -112,8 +116,33 @@ input::-webkit-inner-spin-button {
     color: red;
 }
 
-/**
-*? Para item-card.ejs (los estilos) se puede reutilizar todo haciendo que los estilos dependas del "main padre" del que estén dentro.
-*?      > item.ejs: #item-main article {height: toda la pantalla;...}
-*?      > inici.ejs: #inici-main article --> que sea mucho mas pequeño y que salgan todos pues como si fuera amazon, cartitas pequeñas
+
+/*
+** addAction.ejs
 */
+#addAction-id {
+    display: grid;
+    place-content: center;
+    margin-top: 12vh;
+}
+
+#addAction-main {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 300px;
+}
+
+#addAction-main > h2 {
+    text-align: center;
+}
+
+#addAction-main > div > h4 {
+    text-align: center;
+}
+
+#addAction-main > div > img[src^="/imgs/"] {
+    aspect-ratio: 1/1;
+    width: 300px;
+    height: 300px;
+}
