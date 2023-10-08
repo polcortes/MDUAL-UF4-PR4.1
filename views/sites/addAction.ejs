@@ -4,17 +4,19 @@
     <%- include('../partials/head') %>
     <title>Producte afegit!</title>
 </head>
-<body id="addActoin-id">
+<body>
     <%- include('../partials/nav') %>
 
     <main id="addAction-main">
-        <h2>Producte afegit!</h2>
-        <div>
-            <% __append("<h4>" + item.name + "</h4>"); %> 
-            <% __append('<img src="./imgs/'+ item.image +'" alt="Imatge del teu joc"/>') %>
-            <% __append('<p id="price">' + item.price + "€</p>") %>
-            <% __append('<p id="description">' + item.description + '</p>') %>
-        </div> 
+        <article>
+            <h2>Producte afegit!</h2>
+            <div>
+                <% __append("<h4>" + item.name + "</h4>"); %> 
+                <% __append('<img src="imgs/'+ item.image +'" alt="Imatge del teu joc"/>') %>
+                <% __append('<p id="price">' + item.price + "€</p>") %>
+                <% __append('<p id="description">' + item.description + '</p>') %>
+            </div> 
+        </article>
     </main>
 </body>
 </html>

@@ -61,7 +61,7 @@ async function getAdd(req, res) {
 
 app.get('/delete', getDelete);
 async function getDelete(req, res) {
-
+    res.render('sites/delete', {});
 }
 
 app.post('/actionAdd', upload.array('foto', 1), getActionAdd);
@@ -79,10 +79,10 @@ async function getActionAdd(req, res) {
             const uniqueID = uuidv4();
             const fileExtension = fileObj.name.split(".").pop();
             let filePath = `${uniqueID}.${fileExtension}`;
-            await fs.writeFile("./public/imgs" + filePath, fileObj.content);
+            await fs.writeFile("./public/imgs/" + filePath, fileObj.content);
 
             // Guardem el nom de l'arxiu a la propietat 'imatge' de l'objecte
-            postData.imatge = filePath;
+            postData.image = filePath;
             dades.sort((a, b) => {
                 if (a.id < b.id) return -1;
             });

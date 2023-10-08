@@ -1,5 +1,17 @@
 <h1>Modificant el producte amb id <% __append(id) %></h1>
-    
+
+<button href="/delete?id=<% __append(id) %></button>">
+    <svg style="width: 15px; height: 15px;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M4 7l16 0"></path>
+        <path d="M10 11l0 6"></path>
+        <path d="M14 11l0 6"></path>
+        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+    </svg> 
+    Esborrar item
+</button>
+
 <form id="add-product" method="POST" action="./actionAdd" enctype="multipart/form-data">
     <label>Nombre del juego: <span class="form-required">*</span></label>
     <input id="name" type="text" name="name" placeholder="Nombre del juego" value="<% __append(name) %>" required autocomplete="off">
@@ -13,5 +25,5 @@
         Custom Upload
     </label>-->
     <input id="foto" type="file" name="foto" alt="Añade una imagen al producto" accept="image/jpg, image/png, image/webp" required><br>
-    <input type="submit">Penjar joc!</button>
+    <input type="submit" value="Penjar joc!"></button>
 </form>
