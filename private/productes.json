@@ -7,11 +7,11 @@
         "image": "imgs/GoatSimulator3.jpg"
     },
     {
-        "id": 1,
-        "name": "Barbie 12 Princesas Bailarinas",
+        "name": "Barbie 12 Princesas Bailarinas 123123",
         "price": 15,
         "description": "El juego basado en la famosa película con el mismo nombre ha llegado a la PS2!",
-        "image": "imgs/Barbie12PrincesasBailarinas.jpg"
+        "id": 1,
+        "image": "imgs/9ef2ba4e-a3fa-438a-bcec-4ec6aeefa4e0.webp"
     },
     {
         "id": 2,
@@ -68,5 +68,12 @@
         "price": 2.5,
         "description": "Sé, vive, respira, piensa y actúa como Torrente. Métete de lleno en la piel de \"El Policía más grande que ha dado España\". Santiago Segura será de nuevo la estrella de la película que se estrenará el próximo 30 de septiembre, y prestará su imagen y voz como Torrente en el videojuego, involucrándose de lleno en el proyecto.",
         "image": "imgs/Torrente.jpg"
+    },
+    {
+        "name": 12312123,
+        "price": 1231,
+        "description": "asdasdasd",
+        "imatge": "8453f133-3770-4505-b98a-6dbf9ae88413.webp",
+        "id": 10
     }
 ]

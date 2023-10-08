@@ -1,6 +1,6 @@
 <h1>Modificant el producte amb id <% __append(id) %></h1>
     
-<form id="add-product" method="POST" action="./actionAdd" enctype="multipart/form-data">
+<form id="add-product" method="POST" action="./actionEdit" enctype="multipart/form-data">
     <label>Nombre del juego: <span class="form-required">*</span></label>
     <input id="name" type="text" name="name" placeholder="Nombre del juego" value="<% __append(name) %>" required autocomplete="off">
     <label>Precio: <span class="form-required">*</span></label>
@@ -14,4 +14,6 @@
     </label>-->
     <input id="foto" type="file" name="foto" alt="Añade una imagen al producto" accept="image/jpg, image/png, image/webp" required><br>
     <input type="submit">Penjar joc!</button>
+
+    <input type="hidden" id="id" name="id" value="<% __append(id) %>">
 </form>
